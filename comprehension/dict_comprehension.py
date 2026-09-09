@@ -31,3 +31,7 @@ student_data_frame = pd.DataFrame(student_dict)
 for (index,row ) in student_data_frame.iterrows():
     # print(index)
     print(row.student)
+
+
+# Keyword Method with iterrows()
+# {new_key:new_value for (index, row) in df.iterrows()}
