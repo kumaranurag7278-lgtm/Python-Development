@@ -9,9 +9,7 @@ window.minsize(width=500,height=300)
 
 # Label :
 my_label = tkinter.Label(text="I am a Label",font=("Arial",24,"italic"))
-my_label.pack(expand="True")
-
-
+my_label.pack(side="top")
 
 
 window.mainloop()
