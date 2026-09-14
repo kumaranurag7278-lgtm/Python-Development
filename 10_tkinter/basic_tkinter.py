@@ -1,47 +1,39 @@
 from tkinter import *
 
-# Button
+
+# Button function
 def button_clicked():
-    # my_label["text"] = "onichan came inside me"
-    new_text = input.get()
+    new_text = input_box.get()
     my_label.config(text=new_text)
 
-    print("onichan yamate kudasai")
 
-
-
-# create a window :
+# Create a window
 window = Tk()
-window.title("my first GUI program")
-
-# size of the window 
-window.minsize(width=500,height=300)
-window.config(padx=20,pady=20)
-
-# Label :
-my_label = Label(text="I am a Label",font=("Arial",24,"italic"))
+window.title("My First GUI Program")
+window.minsize(width=500, height=300)
+window.config(padx=20, pady=20)
 
 
-# we can use - Grid() , pack() or place() to show my_label on window.
-my_label.grid(column=0,row=0)
-# my_label.pack(side="top")
+# Label
+my_label = Label(
+    text="I am a Label",
+    font=("Arial", 24, "italic")
+)
+my_label.grid(column=0, row=0)
 
 
-
-# change text 
-# my_label.config(text="New Text") #another way of changing the text
-
-
-
-button = Button(text="Click me daddy",command = button_clicked)
-# button.pack()
-button.grid(column=1,row=2)
+# Button
+button = Button(
+    text="Click me",
+    command=button_clicked
+)
+button.grid(column=1, row=2)
 
 
-# Entry 
-input = Entry(width=15)
-# input.pack()
-input.grid(column=2,row=3)
+# Entry
+input_box = Entry(width=15)
+input_box.grid(column=2, row=3)
 
 
+# Keep the window running
 window.mainloop()
