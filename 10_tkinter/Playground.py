@@ -1,4 +1,4 @@
-# syntax for args
+'''# syntax for args
 def add(*args):
     print(args[0])   #acces to each args thorugh postions
     sum = 0
@@ -18,5 +18,18 @@ def calculate(**kwargs):
 
     print(n)
 
-calculate(add=3,multiply=5) #output will be dictonary
+calculate(add=3,multiply=5) #output will be dictonary'''
+# using args kwargs in class:
+
+class Car:
+    def __init__(self,**kw):
+        self.make = kw["make"]     #kw.get("make")
+        self.model = kw["model"]  #kw.get("model")
+        self.color = kw.get("color")
+        self.seats = kw.get("seats") 
+
+my_car = Car(make="Nissan",model="GT-R",color = "Black",seats="2")
+print(my_car.seats)
+
+
 
