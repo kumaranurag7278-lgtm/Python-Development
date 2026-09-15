@@ -26,8 +26,22 @@ canvas = Canvas(width=200 ,height=224,bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100,112,image = tomato_img)
 
-canvas.create_text(100,130, text= "00:00",fill = "white",font=(FONT_NAME,35,"bold"))
-canvas.pack()
+
+canvas.create_text(100,130, text= "00:00",fill = "white",font=(FONT_NAME,20,"bold"))
+
+canvas.grid(column=2,row=2)
+
+
+# Timer label 
+timer = Label(text="Timer",fg=GREEN,font=(FONT_NAME,50),bg=YELLOW)
+timer.grid(column=2,row=0)
+# start button 
+start_button = Button(width = 7 ,text = "Start", highlightthickness=0)
+start_button.grid(column=0,row=3)
+
+# stop button
+reset_button = Button(width=7,text="Reset", highlightthickness=0)
+reset_button.grid(column=3,row=3)
 
 
 
