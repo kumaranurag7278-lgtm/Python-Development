@@ -35,6 +35,14 @@ canvas.grid(column=2,row=2)
 # Timer label 
 timer = Label(text="Timer",fg=GREEN,font=(FONT_NAME,50),bg=YELLOW)
 timer.grid(column=2,row=0)
+
+
+# checkmark
+
+mark = Label(text="✓",fg=GREEN,bg=YELLOW,font=(20))
+mark.grid(column=2,row=3)
+
+
 # start button 
 start_button = Button(width = 7 ,text = "Start", highlightthickness=0)
 start_button.grid(column=0,row=3)
@@ -42,6 +50,7 @@ start_button.grid(column=0,row=3)
 # stop button
 reset_button = Button(width=7,text="Reset", highlightthickness=0)
 reset_button.grid(column=3,row=3)
+
 
 
 
