@@ -1,8 +1,42 @@
 from tkinter import *
 from tkinter import messagebox
+import string
+import random
+import pyperclip
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def password_generator():
+    letters = list(string.ascii_letters)
+    numbers = list(string.digits)
+    # Symbols: ASCII 33–126 that are not letters or digits (!, @, #, ...).
+    symbols = [chr(i) for i in range(33, 127) if not chr(i).isalnum()]
 
+
+    nr_letters = random.randint(8, 10)
+    nr_symbols = random.randint(2, 4)
+    nr_numbers = random.randint(2, 4)
+
+    password_list = []
+
+    for char in range(nr_letters):
+        password_list.append(random.choice(letters))
+
+    for char in range(nr_symbols):
+        password_list += random.choice(symbols)
+
+    for char in range(nr_numbers):
+        password_list += random.choice(numbers)
+
+    random.shuffle(password_list)
+
+    password = "".join(password_list)
+    
+
+    passowrd_input.insert(0,password)
+
+    # copying the password 
+    pyperclip.copy(password)
+    
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def gather_info():
     # store info
@@ -50,8 +84,8 @@ website.grid(column=0,row=1)
 email = Label(text = "Email/Username: ")
 email.grid(column=0,row=2)
 
-password = Label(text = "Password: ")
-password.grid(column=0,row=3)
+password_label = Label(text = "Password: ")
+password_label.grid(column=0,row=3)
 
 
 # Input :
@@ -70,7 +104,7 @@ passowrd_input.grid(row=3,column=1)
 
 # Buttons
 
-password_button = Button(text="Generate Password")
+password_button = Button(text="Generate Password",command=password_generator)
 password_button.grid(column=2,row=3)
 
 
