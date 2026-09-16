@@ -4,6 +4,15 @@ from tkinter import *
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+def gather_info():
+    email_info = email_input.get()
+    password_info = passowrd_input.get()
+    website_info = website_input.get()
+    with open("password.txt",mode='a') as file:
+        file.write(f"{website_info} | {email_info} | {password_info} \n")
+    email_input.delete(0,END)
+    passowrd_input.delete(0,END)
+    website_input.delete(0,END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -39,7 +48,7 @@ website_input.grid(row=1,column=1,columnspan=2)
 
 email_input = Entry(width=35)
 email_input.grid(row=2,column=1,columnspan=2)
-
+email_input.insert(0,"kumaranurag.7278@gmail.com")
 
 passowrd_input = Entry(width=22)
 passowrd_input.grid(row=3,column=1)
@@ -51,7 +60,7 @@ password_button = Button(text="Generate Password")
 password_button.grid(column=2,row=3)
 
 
-add_button = Button(text="Add",width=36)
+add_button = Button(text="Add",width=36,command=gather_info)
 add_button.grid(column=1,row=4,columnspan=2)
 
 
