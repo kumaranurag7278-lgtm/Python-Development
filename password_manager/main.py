@@ -1,18 +1,32 @@
 from tkinter import *
-
+from tkinter import messagebox
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def gather_info():
+    # store info
     email_info = email_input.get()
     password_info = passowrd_input.get()
     website_info = website_input.get()
-    with open("password.txt",mode='a') as file:
-        file.write(f"{website_info} | {email_info} | {password_info} \n")
-    email_input.delete(0,END)
-    passowrd_input.delete(0,END)
-    website_input.delete(0,END)
+
+    # Add a popup window for warning 
+    if len(website_info) == 0 or len(password_info) == 0:
+        warn = messagebox.showinfo(title= "Opps",message=f"Please do not leave any of field empty")
+    else:
+        # Add a popup window for conformation
+        
+            is_ok = messagebox.askokcancel(title="Website",message=f"These are the detials enterd: \nEmail: {email_info}\nPassword: {password_info}\n Is it ok to save?")
+            if is_ok:
+                # Add all the info to password.txt
+                    with open("password.txt",mode='a') as file:
+                        file.write(f"{website_info} | {email_info} | {password_info} \n")
+                        passowrd_input.delete(0,END)
+                        website_input.delete(0,END)
+        
+
+    
+    
 
 # ---------------------------- UI SETUP ------------------------------- #
 
