@@ -3,7 +3,7 @@ from tkinter import messagebox
 import string
 import random
 import pyperclip
-
+import json
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def password_generator():
     letters = list(string.ascii_letters)
@@ -43,21 +43,28 @@ def gather_info():
     email_info = email_input.get()
     password_info = passowrd_input.get()
     website_info = website_input.get()
-
+    new_data = {
+        website_info: {
+        "email":email_info,
+        "password":password_info,
+        }
+    }
     # Add a popup window for warning 
     if len(website_info) == 0 or len(password_info) == 0:
         warn = messagebox.showinfo(title= "Opps",message=f"Please do not leave any of field empty")
-    else:
-        # Add a popup window for conformation
-        
-            is_ok = messagebox.askokcancel(title="Website",message=f"These are the detials enterd: \nEmail: {email_info}\nPassword: {password_info}\n Is it ok to save?")
-            if is_ok:
-                # Add all the info to password.txt
-                    with open("password.txt",mode='a') as file:
-                        file.write(f"{website_info} | {email_info} | {password_info} \n")
-                        passowrd_input.delete(0,END)
-                        website_input.delete(0,END)
-        
+    else:        
+        # Add all the info to data.json
+        with open("data.json",mode='r') as data_file:
+            # Reading old data 
+            data = json.load(data_file)
+            # Updating old data with new data
+            data.update(new_data)
+        with open("data.json","w") as data_file:
+            # Saving updated data
+            json.dump(new_data,data_file,indent=4)    
+            passowrd_input.delete(0,END)
+            website_input.delete(0,END)
+ 
 
     
     
