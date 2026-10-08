@@ -36,6 +36,7 @@ print(last_day_data)
 
 
 #TODO 2. - Get the day before yesterday's closing stock price
+day_before_data = data["Time Series (Daily)"][date_keys[1]]['4. close']
 
 #TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
 
